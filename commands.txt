@@ -1,0 +1,9 @@
+dotnet new webapi --name Person --framework net8.0
+
+mongo db
+concyline TJ8ZEc40JFjXlmA2
+
+MongoDB.Driver no nuget
+dotnet add package MongoDB.Driver
+
+mongodb+srv://concyline:TJ8ZEc40JFjXlmA2@cluster0.qhn0zwz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
