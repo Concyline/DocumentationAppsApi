@@ -23,6 +23,9 @@
         public static ApiResponse<T> BadRequest(string message = "Requisição inválida")
             => new ApiResponse<T> { Success = false, Message = message, StatusCode = 400 };
 
+        public static ApiResponse<T> Unauthorized(string message = "Não autorizado")
+     => new ApiResponse<T> { Success = false, Message = message, StatusCode = 401 };
+
         // ✅ 403 Forbidden
         public static ApiResponse<T> Forbidden(string message = "Acesso negado")
             => new ApiResponse<T> { Success = false, Message = message, StatusCode = 403 };

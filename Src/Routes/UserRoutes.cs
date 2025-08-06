@@ -16,7 +16,7 @@ namespace DocumentationAppsApi.Src.Routes
                 var user = await userService.AuthenticateAsync(request.Email, request.Password);
 
                 if (user == null)
-                    return Results.Unauthorized();
+                    return Results.Ok(ApiResponse<object>.Unauthorized());
 
                 return Results.Ok(ApiResponse<object>.Ok(user, "Login realizado com sucesso"));
             });
