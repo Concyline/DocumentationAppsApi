@@ -1,9 +1,18 @@
+using DocumentationAppsApi.Src.IServices;
+using DocumentationAppsApi.Src.MongoConfig;
+using DocumentationAppsApi.Src.Routes;
+using DocumentationAppsApi.Src.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// CUSTONS SERVICES
+builder.Services.AddMongoDb(builder.Configuration);
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
@@ -16,12 +25,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => {
+app.MapGet("/", () =>
+{
     return Results.Ok("v1");
 });
 
 
-app.Urls.Add("http://+:80");
+// ROUTES
+app.userRoutes();
+
+
+//app.Urls.Add("http://+:80");
 
 app.Run();
 
