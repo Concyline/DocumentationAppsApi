@@ -1,4 +1,4 @@
-using DocumentationAppsApi.Src.IServices;
+﻿using DocumentationAppsApi.Src.IServices;
 using DocumentationAppsApi.Src.MongoConfig;
 using DocumentationAppsApi.Src.Routes;
 using DocumentationAppsApi.Src.Services;
@@ -14,6 +14,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMongoDb(builder.Configuration);
 builder.Services.AddScoped<IUserService, UserService>();
 
+// 🔹 Adiciona política de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTudo", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("PermitirTudo"); // aplica a política
 
 app.MapGet("/", () =>
 {
@@ -35,7 +48,7 @@ app.MapGet("/", () =>
 app.userRoutes();
 
 
-//app.Urls.Add("http://+:80");
+app.Urls.Add("http://+:80");
 
 app.Run();
 
