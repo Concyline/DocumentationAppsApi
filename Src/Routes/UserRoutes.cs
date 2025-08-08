@@ -165,7 +165,7 @@ namespace DocumentationAppsApi.Src.Routes
                 if (!success)
                     return Results.Problem("Erro ao enviar o email.");
 
-                return Results.Ok("Token enviado com sucesso, acesse seu email para modificar sua senha!");
+                return Results.Ok(ApiResponse<object>.Ok(token, "Token enviado com sucesso, acesse seu email para modificar sua senha!"));
             });
 
 
