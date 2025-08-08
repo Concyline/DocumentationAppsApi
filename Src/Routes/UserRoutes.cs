@@ -150,7 +150,7 @@ namespace DocumentationAppsApi.Src.Routes
                                       <p>Use o código abaixo:</p>
                                       <div class=""token-box"">{token}</div>
                                       <p>Ou clique no botão abaixo para redefinir sua senha diretamente:</p>
-                                      <a href=""https://seuapp.com/reset-password?token={token}"" class=""button"">Redefinir Senha</a>
+                                      <a href=""https://documentationapppwa.netlify.app/src/recuperacao.html?token={token}"" class=""button"">Redefinir Senha</a>
                                       <p>Este código é válido por <strong>10 minutos</strong>. Se você não solicitou esta ação, ignore este e-mail.</p>
                                     </div>
                                     <div class=""footer"">
