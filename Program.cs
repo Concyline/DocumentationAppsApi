@@ -49,7 +49,7 @@ app.MapGet("/", () =>
 app.userRoutes();
 
 
-//app.Urls.Add("http://+:80");
+app.Urls.Add("http://+:80");
 
 app.Run();
 
