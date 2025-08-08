@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 // CUSTONS SERVICES
 builder.Services.AddMongoDb(builder.Configuration);
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddHttpClient<IEmailService, EmailService>();
 
 // 🔹 Adiciona política de CORS
 builder.Services.AddCors(options =>
@@ -48,7 +49,7 @@ app.MapGet("/", () =>
 app.userRoutes();
 
 
-app.Urls.Add("http://+:80");
+//app.Urls.Add("http://+:80");
 
 app.Run();
 
